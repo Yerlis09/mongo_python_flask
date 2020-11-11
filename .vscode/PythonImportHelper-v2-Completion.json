@@ -1,0 +1,231 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "MongoClient",
+        "importPath": "pymongo",
+        "description": "pymongo",
+        "isExtraImport": true,
+        "detail": "pymongo",
+        "documentation": {
+            "value": "\n```python\nimport pymongo\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "MethodView",
+        "importPath": "flask.views",
+        "description": "flask.views",
+        "isExtraImport": true,
+        "detail": "flask.views",
+        "documentation": {
+            "value": "\n```python\nimport flask.views\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "Manager",
+        "importPath": "flask_script",
+        "description": "flask_script",
+        "isExtraImport": true,
+        "detail": "flask_script",
+        "documentation": {
+            "value": "\n```python\nimport flask_script\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "app",
+        "importPath": "aplicacion.app",
+        "description": "aplicacion.app",
+        "isExtraImport": true,
+        "detail": "aplicacion.app",
+        "documentation": {
+            "value": "\n```python\nimport aplicacion.app\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "Home",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import Home\n```\n\n```python\n\n\n```\n\n```python\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "Post_Persona",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    collection.insert_one({'nombre':nombre,\"apellido\":appellido,\"edad\":edad})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n    app.config['DEBUG'] = True",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import Post_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    collection.insert_one({'nombre':nombre,\"apellido\":appellido,\"edad\":edad})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n    app.config['DEBUG'] = True\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "client = MongoClient('localhost', 27017)\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import client\n```\n\n```python\n\n\n```\n\n```python\nclient = MongoClient('localhost', 27017)\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "db = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "collection",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "collection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import collection\n```\n\n```python\n\n\n```\n\n```python\ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "Person",
+        "kind": 6,
+        "importPath": "person",
+        "description": "person",
+        "peekOfCode": "class Person(MethodView):\n    def  get(self):\n        return render_template('index.html')\n    def post(self):\n        return \"Test\"",
+        "detail": "person",
+        "documentation": {
+            "value": "\n```python\nfrom person import Person\n```\n\n```python\n\n\n```\n\n```python\nclass Person(MethodView):\n    def  get(self):\n        return render_template('index.html')\n    def post(self):\n        return \"Test\"\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "segun",
+        "kind": 5,
+        "importPath": "segun",
+        "description": "segun",
+        "peekOfCode": "segun = Manager(app)\napp.config['DEBUG'] = True # Ensure debugger will load.\nif __name__ == '__main__':\n    segun.run()",
+        "detail": "segun",
+        "documentation": {
+            "value": "\n```python\nfrom segun import segun\n```\n\n```python\n\n\n```\n\n```python\nsegun = Manager(app)\napp.config['DEBUG'] = True # Ensure debugger will load.\nif __name__ == '__main__':\n    segun.run()\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "app.config['DEBUG']",
+        "kind": 5,
+        "importPath": "segun",
+        "description": "segun",
+        "peekOfCode": "app.config['DEBUG'] = True # Ensure debugger will load.\nif __name__ == '__main__':\n    segun.run()",
+        "detail": "segun",
+        "documentation": {
+            "value": "\n```python\nfrom segun import app.config['DEBUG']\n```\n\n```python\n\n\n```\n\n```python\napp.config['DEBUG'] = True # Ensure debugger will load.\nif __name__ == '__main__':\n    segun.run()\n```\n",
+            "supportThemeIcons": false
+        }
+    }
+]
