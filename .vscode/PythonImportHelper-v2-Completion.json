@@ -125,10 +125,10 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']",
+        "peekOfCode": "def Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import Home\n```\n\n```python\n\n\n```\n\n```python\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n```\n",
+            "value": "\n```python\nfrom app import Home\n```\n\n```python\n\n\n```\n\n```python\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -137,10 +137,10 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    collection.insert_one({'nombre':nombre,\"apellido\":appellido,\"edad\":edad})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n    app.config['DEBUG'] = True",
+        "peekOfCode": "def Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import Post_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    appellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    collection.insert_one({'nombre':nombre,\"apellido\":appellido,\"edad\":edad})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n    app.config['DEBUG'] = True\n```\n",
+            "value": "\n```python\nfrom app import Post_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -149,10 +149,10 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "client = MongoClient('localhost', 27017)\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE",
+        "peekOfCode": "client = MongoClient('localhost', 27017)#conexion a la base de datos\ndb = client[\"persona\"] #base de datos \ncollection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import client\n```\n\n```python\n\n\n```\n\n```python\nclient = MongoClient('localhost', 27017)\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n```\n",
+            "value": "\n```python\nfrom app import client\n```\n\n```python\n\n\n```\n\n```python\nclient = MongoClient('localhost', 27017)#conexion a la base de datos\ndb = client[\"persona\"] #base de datos \ncollection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -161,10 +161,10 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "db = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])",
+        "peekOfCode": "db = client[\"persona\"] #base de datos \ncollection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = client[\"persona\"] #bas de datos \ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\n```\n",
+            "value": "\n```python\nfrom app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = client[\"persona\"] #base de datos \ncollection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -173,10 +173,10 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "collection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():",
+        "peekOfCode": "collection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import collection\n```\n\n```python\n\n\n```\n\n```python\ncollection = db[\"Personas\"] #tabla <__ en sql seria una tabla\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n```\n",
+            "value": "\n```python\nfrom app import collection\n```\n\n```python\n\n\n```\n\n```python\ncollection = db[\"Personas\"] #Coleccion \napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -185,10 +185,10 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']",
+        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask(__name__)\n@app.route(\"/\")\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n```\n",
+            "value": "\n```python\nfrom app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask(__name__)\n@app.route(\"/\") #Ruta\ndef Home():\n    personas = collection.find({})\n    pageModel = {'title': 'Momgodb crud', 'content':\"Esto es una prueba\", 'data': personas}\n    return render_template('index.html', model=pageModel )\n#POST GET PUT  DELETE\n@app.route(\"/Persona\",methods=['POST'])\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n```\n",
             "supportThemeIcons": false
         }
     },
