@@ -137,10 +137,22 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'",
+        "peekOfCode": "def Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\n@app.route('/Persona/<id>', methods=[\"get\",\"post\"])\ndef update_Persona(id):\n    return id",
         "detail": "app",
         "documentation": {
-            "value": "\n```python\nfrom app import Post_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\nif __name__ == \"__main__\":\n    app.run(debug=True)\n    app.config['ENV'] = 'development'\n```\n",
+            "value": "\n```python\nfrom app import Post_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef Post_Persona():\n    nombre =  data = request.form['nombre']\n    apellido =  data = request.form['apellido']\n    edad =  data = request.form['edad']\n    email =  data = request.form['email']\n    collection.insert_one({'nombre':nombre,\"apellido\":apellido,\"edad\":edad, \"email\":email})\n    return  redirect(\"/\",302)\n@app.route('/Persona/<id>', methods=[\"get\",\"post\"])\ndef update_Persona(id):\n    return id\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "update_Persona",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def update_Persona(id):\n    return id\nif __name__ == \"__main__\":\n    app.run(debug = True)\n    #app.config['ENV'] = 'development'\n    #app.config['DEBUG'] = True\n    #app.config['TESTING'] = True",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import update_Persona\n```\n\n```python\n\n\n```\n\n```python\ndef update_Persona(id):\n    return id\nif __name__ == \"__main__\":\n    app.run(debug = True)\n    #app.config['ENV'] = 'development'\n    #app.config['DEBUG'] = True\n    #app.config['TESTING'] = True\n```\n",
             "supportThemeIcons": false
         }
     },

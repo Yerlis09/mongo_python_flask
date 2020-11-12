@@ -8,6 +8,7 @@ collection = db["Personas"] #Coleccion
 
 app = Flask(__name__)
 
+
 @app.route("/") #Ruta
 def Home():
     personas = collection.find({})
@@ -24,12 +25,17 @@ def Post_Persona():
     collection.insert_one({'nombre':nombre,"apellido":apellido,"edad":edad, "email":email})
     return  redirect("/",302)
 
+@app.route('/Persona/<id>', methods=["get","post"])
+def update_Persona(id):
+    return id
+
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    app.config['ENV'] = 'development'
-    app.config['DEBUG'] = True
-    app.config['TESTING'] = True
+    app.run(debug = True)
+    
+    #app.config['ENV'] = 'development'
+    #app.config['DEBUG'] = True
+    #app.config['TESTING'] = True
 
 
