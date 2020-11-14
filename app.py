@@ -1,82 +1,49 @@
-from flask import Flask,render_template,request,redirect
-app = Flask(__name__)
+from flask import Flask,render_template,request,redirect,url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-# #comandos 
-#  set FLASK_APP=main.py para poner el proyecto de destinacion
+app = Flask(__name__)
 client = MongoClient('localhost', 27017)#conexion a la base de datos
-db = client["persona"] #base de datos 
-collection = db["Personas"] #Coleccion 
-
-
+db = client["peopledb"] #base de datos 
+collection = db["people"] #Coleccion 
 
 
 @app.route("/") #Ruta
 def Home():
     personas = collection.find({})
-    pageModel = {'title': 'Momgodb crud', 'content':"Esto es una prueba", 'data': personas}
-    return render_template('index.html', model=pageModel )
+    pageModel = {'title': 'Mongo CRUD', 'data': personas}
+    return render_template('list.html', model=pageModel )
 
+@app.route("/create",methods=['GET'])
+def createPerson():
+    return render_template('add.html' )    
 
-#creo que no se pude usar la misma url 
-@app.route("/Persona/")
-@app.route("/Persona/<id>",methods = ['GET'])
-def Get_Update_Persona(id=None):
-    try :
-        data = collection.find_one({'_id':    ObjectId(id)})
-
-        model = {"data" : data, "id":id}
-    
-        return render_template('/Person/index.html',model=model)
-    except IndexError as e:
-        return e
-
-#POST GET PUT  DELETE
-@app.route("/CreatePersona",methods=['POST'])
-def Post_Persona():
-    
-    nombre =  data = request.form['nombre']
-    apellido =  data = request.form['apellido']
-    edad =  data = request.form['edad']
-    email =  data = request.form['email']
+@app.route("/create",methods=['POST'])
+def postCreate():
+    nombre = request.form['nombre']
+    apellido = request.form['apellido']
+    edad  = request.form['edad']
+    email = request.form['email']
     collection.insert_one({'nombre':nombre,"apellido":apellido,"edad":edad, "email":email})
-    return  redirect("/",302)
+    return redirect(url_for('Home'))
 
-@app.route('/DeletePersona/<id>',methods=["DELETE"])
-def delete_Persona(id):
-    db.delete_one({'_id': ObjectId(id)})
-    return redirect({'msg': 'usuario eliminado'})
+@app.route("/remove",methods=['POST'])
+def postRemove():
+    id = request.form['user_id']    
+    collection.delete_many({'email':id})
+    return redirect(url_for('Home'))
 
-@app.route('/UpdatePersona/<id>',methods=["POST"])
-def Update_Persona(id=None):
-   
+@app.route("/update",methods=['POST'])
+def postUpdate():
+    id = request.form['id']
+    
     collection.update_one({'_id':    ObjectId(id)}, {'$set': {
         'nombre': request.form['nombre'],
         'apellido': request.form['apellido'],
          'edad': request.form['edad'],
          'email': request.form['email']
-
-
     }})
-    data = {
-        'nombre': request.form['nombre'],
-        'apellido': request.form['apellido'],
-         'edad': request.form['edad'],
-         'email': request.form['email']
-    }
-    model= {"id":id,"ok":True, 'data':data}
-    return render_template('/Person/index.html',model=model)
+    return redirect(url_for('Home'))
 
-
-
-
-
-# start the development server using the run() methodif __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host="127.0.0.1", debug=True, port=5000)
-    
-    #app.config['ENV'] = 'development'
-    #app.config['DEBUG'] = True
-    #app.config['TESTING'] = True
-
-
